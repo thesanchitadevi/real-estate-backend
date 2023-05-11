@@ -19,4 +19,10 @@ router.use(
 	// #swagger.tags = ['Users']
 );
 
+router.use(
+	"/projects",
+	require("./projects")
+	// #swagger.tags = ['Projects']
+);
+
 module.exports = router;
