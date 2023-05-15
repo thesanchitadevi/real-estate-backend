@@ -25,4 +25,10 @@ router.use(
 	// #swagger.tags = ['Projects']
 );
 
+router.use(
+	"/testimonials",
+	require("./testimonial") //service folder
+	// #swagger.tags = ['Testimonials']
+);
+
 module.exports = router;

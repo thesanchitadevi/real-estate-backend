@@ -990,6 +990,147 @@
         ],
         "deprecated": true
       }
+    },
+    "/api/v1/testimonials/": {
+      "get": {
+        "tags": [
+          "Testimonials"
+        ],
+        "description": "Get all testimonials list",
+        "parameters": [
+          {
+            "name": "search",
+            "in": "query",
+            "schema": {
+              "type": "string"
+            }
+          },
+          {
+            "name": "limit",
+            "in": "query",
+            "schema": {
+              "type": "number"
+            }
+          },
+          {
+            "name": "page",
+            "in": "query",
+            "schema": {
+              "type": "number"
+            }
+          },
+          {
+            "name": "sort",
+            "in": "query",
+            "schema": {
+              "type": "string"
+            }
+          }
+        ],
+        "responses": {
+          "200": {
+            "description": "Successful"
+          },
+          "500": {
+            "description": "Internal Server Error"
+          }
+        }
+      },
+      "post": {
+        "tags": [
+          "Testimonials"
+        ],
+        "description": "Create a new testimonial",
+        "parameters": [],
+        "responses": {
+          "201": {
+            "description": "Successful"
+          },
+          "400": {
+            "description": "Invalid Request"
+          },
+          "401": {
+            "description": "Unauthenticated"
+          },
+          "500": {
+            "description": "Internal Server Error"
+          }
+        },
+        "security": [
+          {
+            "bearerAuth": []
+          }
+        ],
+        "requestBody": {
+          "required": true,
+          "content": {
+            "application/json": {
+              "schema": {
+                "required": [
+                  "firstName",
+                  "lastName",
+                  "testimonial"
+                ],
+                "properties": {
+                  "firstName": {
+                    "type": "string",
+                    "minLength": 10,
+                    "example": "PARK"
+                  },
+                  "lastName": {
+                    "type": "string",
+                    "minLength": 10,
+                    "example": "JIMIN"
+                  },
+                  "testimonial": {
+                    "type": "string",
+                    "minLength": 10,
+                    "example": "Trusting a company with your land is very important, and JCX Developments was the right choice as they earned our trust."
+                  }
+                }
+              }
+            }
+          }
+        }
+      }
+    },
+    "/api/v1/testimonials/{id}": {
+      "delete": {
+        "tags": [
+          "Testimonials"
+        ],
+        "description": "Delete a testimonial",
+        "parameters": [
+          {
+            "name": "id",
+            "in": "path",
+            "required": true,
+            "schema": {
+              "type": "string"
+            }
+          }
+        ],
+        "responses": {
+          "200": {
+            "description": "Successful"
+          },
+          "400": {
+            "description": "Invalid Request"
+          },
+          "401": {
+            "description": "Unauthenticated"
+          },
+          "500": {
+            "description": "Internal Server Error"
+          }
+        },
+        "security": [
+          {
+            "bearerAuth": []
+          }
+        ],
+        "deprecated": true
+      }
     }
   },
   "components": {
