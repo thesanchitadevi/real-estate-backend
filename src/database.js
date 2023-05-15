@@ -13,6 +13,7 @@ db.Users = require("./services/v1/users/users.model")(Connection, Sequelize);
 db.Admin = require("./services/v1/admin/admin.model")(Connection, Sequelize);
 db.Projects = require("./services/v1/projects/projects.model")(Connection, Sequelize);
 db.Testimonials = require("./services/v1/testimonial/testimonial.model")(Connection, Sequelize);
+db.Employee = require("./services/v1/employee/employee.model")(Connection, Sequelize);
 
 // Relation Ships
 
@@ -23,5 +24,11 @@ db.Projects.belongsTo(db.Admin, { as: "updatedBy" });
 // - Testimonials
 db.Testimonials.belongsTo(db.Admin, { as: "createdBy" });
 db.Testimonials.belongsTo(db.Admin, { as: "updatedBy" });
+
+// - Employee
+db.Employee.belongsTo(db.Admin, { as: "createdBy" });
+db.Employee.belongsTo(db.Admin, { as: "updatedBy" });
+
+
 
 module.exports = db;
