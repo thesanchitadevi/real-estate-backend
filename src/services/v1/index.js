@@ -31,4 +31,10 @@ router.use(
 	// #swagger.tags = ['Testimonials']
 );
 
+router.use(
+	"/employee",
+	require("./employee") //service folder
+	// #swagger.tags = ['Employee']
+);
+
 module.exports = router;

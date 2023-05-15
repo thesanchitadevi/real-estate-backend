@@ -1131,6 +1131,264 @@
         ],
         "deprecated": true
       }
+    },
+    "/api/v1/employee/": {
+      "get": {
+        "tags": [
+          "Employee"
+        ],
+        "description": "Get all employee list",
+        "parameters": [
+          {
+            "name": "search",
+            "in": "query",
+            "schema": {
+              "type": "string"
+            }
+          },
+          {
+            "name": "limit",
+            "in": "query",
+            "schema": {
+              "type": "number"
+            }
+          },
+          {
+            "name": "page",
+            "in": "query",
+            "schema": {
+              "type": "number"
+            }
+          },
+          {
+            "name": "sort",
+            "in": "query",
+            "schema": {
+              "type": "string"
+            }
+          }
+        ],
+        "responses": {
+          "200": {
+            "description": "Successful"
+          },
+          "500": {
+            "description": "Internal Server Error"
+          }
+        }
+      },
+      "post": {
+        "tags": [
+          "Employee"
+        ],
+        "description": "Create a new employee",
+        "parameters": [],
+        "responses": {
+          "201": {
+            "description": "Successful"
+          },
+          "400": {
+            "description": "Invalid Request"
+          },
+          "401": {
+            "description": "Unauthenticated"
+          },
+          "500": {
+            "description": "Internal Server Error"
+          }
+        },
+        "security": [
+          {
+            "bearerAuth": []
+          }
+        ],
+        "requestBody": {
+          "required": true,
+          "content": {
+            "application/json": {
+              "schema": {
+                "required": [
+                  "firstName",
+                  "lastName",
+                  "designation",
+                  "description",
+                  "image",
+                  "rank"
+                ],
+                "properties": {
+                  "firstName": {
+                    "type": "string",
+                    "minLength": 10,
+                    "example": "AHMED ATAUL"
+                  },
+                  "lastName": {
+                    "type": "string",
+                    "minLength": 10,
+                    "example": "KARIM"
+                  },
+                  "designation": {
+                    "type": "string",
+                    "minLength": 10,
+                    "example": "Director"
+                  },
+                  "rank": {
+                    "type": "integer",
+                    "minLength": 10,
+                    "example": "1"
+                  },
+                  "description": {
+                    "type": "string",
+                    "minLength": 10,
+                    "example": "Mr. Ahmed Ataul Karim was born on 1st January 1974 in Feni District. He has participated in various professional training from time to time-related to his assigned job. It has increased his professional efficiency in all respects.     Mr. Ahmed Ataul Karim is also Director of JCX Developments Ltd, Chairman of Global Energy Ltd, Managing Director of Jams Consortium Ltd. Since his involvement with JCX Developments Ltd. as a director, he has become one of the most successful and well-renowned businessmen in the real estate sector of Bangladesh. He has travelled extensively in U.S.A, Thailand, France, Malaysia, U.K, Singapore, and many other countries."
+                  },
+                  "image": {
+                    "type": "string"
+                  }
+                }
+              }
+            }
+          }
+        }
+      }
+    },
+    "/api/v1/employee/{id}": {
+      "get": {
+        "tags": [
+          "Employee"
+        ],
+        "description": "Get employee informations",
+        "parameters": [
+          {
+            "name": "id",
+            "in": "path",
+            "required": true,
+            "schema": {
+              "type": "string"
+            }
+          }
+        ],
+        "responses": {
+          "200": {
+            "description": "Successful"
+          },
+          "400": {
+            "description": "Invalid Request"
+          },
+          "500": {
+            "description": "Internal Server Error"
+          }
+        }
+      },
+      "patch": {
+        "tags": [
+          "Employee"
+        ],
+        "description": "Update project informations",
+        "parameters": [
+          {
+            "name": "id",
+            "in": "path",
+            "required": true,
+            "schema": {
+              "type": "string"
+            }
+          }
+        ],
+        "responses": {
+          "200": {
+            "description": "Successful"
+          },
+          "400": {
+            "description": "Invalid Request"
+          },
+          "401": {
+            "description": "Unauthenticated"
+          },
+          "500": {
+            "description": "Internal Server Error"
+          }
+        },
+        "security": [
+          {
+            "bearerAuth": []
+          }
+        ],
+        "requestBody": {
+          "required": true,
+          "content": {
+            "application/json": {
+              "schema": {
+                "properties": {
+                  "firstName": {
+                    "type": "string",
+                    "minLength": 10,
+                    "example": "AHMED ATAUL"
+                  },
+                  "lastName": {
+                    "type": "string",
+                    "minLength": 10,
+                    "example": "KARIM"
+                  },
+                  "designation": {
+                    "type": "string",
+                    "minLength": 10,
+                    "example": "Director"
+                  },
+                  "rank": {
+                    "type": "integer",
+                    "minLength": 10,
+                    "example": "1"
+                  },
+                  "description": {
+                    "type": "string",
+                    "minLength": 10,
+                    "example": "Mr. Ahmed Ataul Karim was born on 1st January 1974 in Feni District. He has participated in various professional training from time to time-related to his assigned job. It has increased his professional efficiency in all respects.     Mr. Ahmed Ataul Karim is also Director of JCX Developments Ltd, Chairman of Global Energy Ltd, Managing Director of Jams Consortium Ltd. Since his involvement with JCX Developments Ltd. as a director, he has become one of the most successful and well-renowned businessmen in the real estate sector of Bangladesh. He has travelled extensively in U.S.A, Thailand, France, Malaysia, U.K, Singapore, and many other countries."
+                  },
+                  "image": {
+                    "type": "string"
+                  }
+                }
+              }
+            }
+          }
+        }
+      },
+      "delete": {
+        "tags": [
+          "Employee"
+        ],
+        "description": "Delete an employee",
+        "parameters": [
+          {
+            "name": "id",
+            "in": "path",
+            "required": true,
+            "schema": {
+              "type": "string"
+            }
+          }
+        ],
+        "responses": {
+          "200": {
+            "description": "Successful"
+          },
+          "400": {
+            "description": "Invalid Request"
+          },
+          "401": {
+            "description": "Unauthenticated"
+          },
+          "500": {
+            "description": "Internal Server Error"
+          }
+        },
+        "security": [
+          {
+            "bearerAuth": []
+          }
+        ],
+        "deprecated": true
+      }
     }
   },
   "components": {
