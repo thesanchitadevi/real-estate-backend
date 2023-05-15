@@ -15,7 +15,7 @@ db.Projects = require("./services/v1/projects/projects.model")(Connection, Seque
 
 // Relation Ships
 
-// - Game
+// - Projects
 db.Projects.belongsTo(db.Admin, { as: "createdBy" });
 db.Projects.belongsTo(db.Admin, { as: "updatedBy" });
 

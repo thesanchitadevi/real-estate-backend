@@ -21,38 +21,47 @@ module.exports = (sequelize, Sequelize) => {
         },
         architect: {
             type: Sequelize.STRING,
+            allowNull: false,
             default: null,
         },
-        // image: {
-        //     type: Sequelize.STRING,
-        //     default: null,
-        // },
+        image: {
+            type: Sequelize.STRING,
+            allowNull: false,
+            default: null,
+        },
         address: {
             type: Sequelize.STRING,
+            allowNull: false,
             default: null,
         },
         landSize: {
             type: Sequelize.STRING,
+            allowNull: false,
             default: null,
         },
         numberUnits: {
             type: Sequelize.INTEGER,
+            allowNull: false,
             default: null,
         },
         apartmentSize: {
             type: Sequelize.STRING,
+            allowNull: false,
             default: null,
         },
         numberFloors: {
             type: Sequelize.INTEGER,
+            allowNull: false,
             default: null,
         },
         numberParkings: {
             type: Sequelize.INTEGER,
+            allowNull: false,
             default: null,
         },
         handOverDate: {
             type: Sequelize.DATEONLY,
+            allowNull: false,
             default: null,
         },
     });
