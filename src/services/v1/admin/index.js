@@ -79,7 +79,7 @@ router.post(
                             "email": { 
                                 "type": "string", 
                                 "minLength": 1, 
-                                "example": "hello@example.xyz" 
+                                "example": "ibrahimsadiktamim@gmail.com" 
                             }, 
                             "password": { 
                                 "type": "string", 
