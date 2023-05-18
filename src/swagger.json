@@ -733,6 +733,16 @@
                     "minLength": 100,
                     "example": "Dhanmondi, Dhaka"
                   },
+                  "city": {
+                    "type": "string",
+                    "minLength": 10,
+                    "example": "Dhaka"
+                  },
+                  "area": {
+                    "type": "string",
+                    "minLength": 10,
+                    "example": "Uttara"
+                  },
                   "architect": {
                     "type": "string",
                     "minLength": 40,
@@ -887,6 +897,16 @@
                     "type": "string",
                     "minLength": 40,
                     "example": "AR Rahman"
+                  },
+                  "city": {
+                    "type": "string",
+                    "minLength": 10,
+                    "example": "Dhaka"
+                  },
+                  "area": {
+                    "type": "string",
+                    "minLength": 10,
+                    "example": "Uttara"
                   },
                   "image": {
                     "type": "string"
@@ -1243,6 +1263,10 @@
                   },
                   "image": {
                     "type": "string"
+                  },
+                  "isActive": {
+                    "type": "boolean",
+                    "example": "true"
                   }
                 }
               }
@@ -1329,16 +1353,6 @@
                     "minLength": 10,
                     "example": "KARIM"
                   },
-                  "designation": {
-                    "type": "string",
-                    "minLength": 10,
-                    "example": "Director"
-                  },
-                  "rank": {
-                    "type": "integer",
-                    "minLength": 10,
-                    "example": "1"
-                  },
                   "description": {
                     "type": "string",
                     "minLength": 10,
@@ -1346,6 +1360,10 @@
                   },
                   "image": {
                     "type": "string"
+                  },
+                  "isActive": {
+                    "type": "boolean",
+                    "example": "true"
                   }
                 }
               }

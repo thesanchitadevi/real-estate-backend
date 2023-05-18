@@ -22,17 +22,19 @@ module.exports = async (req, _res, next) => {
                         },
                     },
                 ],
+                isActive: true
             },
+    
             attributes: {
-                include: [
-                    [
-                        Sequelize.literal(`(
-                        SELECT COUNT(*)
-                        FROM employees AS employee
-                        )`),
-                        'rank'
-                    ]
-                ],
+                // include: [
+                //     [
+                //         Sequelize.literal(`(
+                //         SELECT COUNT(*)
+                //         FROM employees AS employee
+                //         )`),
+                //         'rank'
+                //     ]
+                // ],
                 exclude: ["createdById", "updatedById"],
             },
             include: [
@@ -49,7 +51,7 @@ module.exports = async (req, _res, next) => {
                     },
                 },
             ],
-            order: [['rank', 'DESC']],
+            order: req.pagination.order(),
             offset: req.pagination.skip,
             limit: req.pagination.limit,
         });

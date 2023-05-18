@@ -76,6 +76,16 @@ router.post(
                                 "minLength": 100, 
                                 "example": "Dhanmondi, Dhaka" 
                             },
+                            "city":{
+                                "type": "string", 
+                                "minLength": 10, 
+                                "example": "Dhaka"
+                            },
+                            "area":{
+                                "type": "string", 
+                                "minLength": 10, 
+                                "example": "Uttara"
+                            },
                             "architect": { 
                                 "type": "string", 
                                 "minLength": 40, 
@@ -201,6 +211,16 @@ router.patch(
                                 "type": "string", 
                                 "minLength": 40, 
                                 "example": "AR Rahman" 
+                            },
+                            "city":{
+                                "type": "string", 
+                                "minLength": 10, 
+                                "example": "Dhaka"
+                            },
+                            "area":{
+                                "type": "string", 
+                                "minLength": 10, 
+                                "example": "Uttara"
                             },
                             "image":{
                                 "type": "string"

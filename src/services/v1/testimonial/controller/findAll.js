@@ -32,6 +32,7 @@ module.exports = async (req, _res, next) => {
                     },
                 },
             ],
+            order: req.pagination.order(),
             offset: req.pagination.skip,
             limit: req.pagination.limit,
         });

@@ -10,7 +10,8 @@ module.exports = async (req, res, next) => {
             designation,
             description,
             image,
-            rank
+            rank,
+            isActive
         } = req.body;
 
         await Employee.create({
@@ -20,6 +21,7 @@ module.exports = async (req, res, next) => {
             description,
             image,
             rank,
+            isActive,
             createdById: req.user.id,
         });
 
