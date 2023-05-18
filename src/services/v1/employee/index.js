@@ -107,6 +107,10 @@ router.post(
                             "image":{
                                 "type": "string"
                             },
+                            "isActive":{
+                                "type": "boolean",
+                                "example": "true"
+                            }
                         } 
                     },
                 }
@@ -154,16 +158,6 @@ router.patch(
                                 "minLength": 10, 
                                 "example": "KARIM" 
                             },
-                            "designation":{
-                                "type": "string", 
-                                "minLength": 10, 
-                                "example": "Director" 
-                            },
-                            "rank":{
-                                "type": "integer", 
-                                "minLength": 10, 
-                                "example": "1" 
-                            },
                             "description":{
                                 "type": "string", 
                                 "minLength": 10, 
@@ -174,6 +168,10 @@ router.patch(
                             "image":{
                                 "type": "string"
                             },
+                            "isActive":{
+                                "type": "boolean",
+                                "example": "true"
+                            }
                         } 
                     },
                 }

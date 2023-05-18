@@ -9,10 +9,9 @@ module.exports = async (req, res, next) => {
         const {
             firstName,
             lastName,
-            designation,
             description,
             image,
-            rank
+            isActive
         } = req.body;
 
         const employee = await Employee.findByPk(req.params.id, {});
@@ -22,10 +21,9 @@ module.exports = async (req, res, next) => {
         await employee.update({
             firstName,
             lastName,
-            designation,
             description,
             image,
-            rank,
+            isActive,
             updatedById: req.user.id,
         });
 

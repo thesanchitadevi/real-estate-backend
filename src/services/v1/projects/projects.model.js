@@ -34,6 +34,16 @@ module.exports = (sequelize, Sequelize) => {
             allowNull: false,
             default: null,
         },
+        city: {
+            type: Sequelize.STRING,
+            allowNull: false,
+            default: null,
+        },
+        area: {
+            type: Sequelize.STRING,
+            allowNull: false,
+            default: null,
+        },
         landSize: {
             type: Sequelize.STRING,
             allowNull: false,
