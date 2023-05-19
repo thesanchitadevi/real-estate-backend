@@ -14,6 +14,9 @@ db.Admin = require("./services/v1/admin/admin.model")(Connection, Sequelize);
 db.Projects = require("./services/v1/projects/projects.model")(Connection, Sequelize);
 db.Testimonials = require("./services/v1/testimonial/testimonial.model")(Connection, Sequelize);
 db.Employee = require("./services/v1/employee/employee.model")(Connection, Sequelize);
+db.Landowner = require("./services/v1/landowner/landowner.model")(Connection, Sequelize);
+
+
 
 // Relation Ships
 
@@ -28,6 +31,10 @@ db.Testimonials.belongsTo(db.Admin, { as: "updatedBy" });
 // - Employee
 db.Employee.belongsTo(db.Admin, { as: "createdBy" });
 db.Employee.belongsTo(db.Admin, { as: "updatedBy" });
+
+// - Landowner
+db.Landowner.belongsTo(db.Admin, { as: "createdBy" });
+db.Landowner.belongsTo(db.Admin, { as: "updatedBy" });
 
 
 
