@@ -1,5 +1,5 @@
 module.exports = (sequelize, Sequelize) => {
-    const landowner = sequelize.define("landowner", {
+    const Landowner = sequelize.define("landowner", {
         landownerName: {
             type: Sequelize.STRING,
             allowNull: false,
@@ -9,7 +9,7 @@ module.exports = (sequelize, Sequelize) => {
             allowNull: false,
         },
         phoneNumber: {
-            type: Sequelize.INTEGER,
+            type: Sequelize.STRING,
             allowNull: false,
         },
         alterLandownerName: {
@@ -46,11 +46,11 @@ module.exports = (sequelize, Sequelize) => {
         facing: {
             type: Sequelize.ENUM,
             allowNull: true,
-            values: ['East','West','North','South',]
+            values: ['East','West','North','South']
         },
 
 
     });
 
-    return landowner;
+    return Landowner;
 };
