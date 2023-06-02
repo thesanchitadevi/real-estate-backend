@@ -1668,6 +1668,103 @@
           }
         }
       }
+    },
+    "/api/v1/image/": {
+      "get": {
+        "tags": [
+          "Image"
+        ],
+        "description": "Get Gallery Images",
+        "parameters": [],
+        "responses": {
+          "200": {
+            "description": "Successful"
+          },
+          "500": {
+            "description": "Internal Server Error"
+          }
+        }
+      },
+      "post": {
+        "tags": [
+          "Image"
+        ],
+        "description": "Upload gallery image",
+        "parameters": [],
+        "responses": {
+          "201": {
+            "description": "Successful"
+          },
+          "400": {
+            "description": "Invalid Request"
+          },
+          "401": {
+            "description": "Unauthenticated"
+          },
+          "500": {
+            "description": "Internal Server Error"
+          }
+        },
+        "security": [
+          {
+            "bearerAuth": []
+          }
+        ],
+        "requestBody": {
+          "content": {
+            "multipart/form-data": {
+              "schema": {
+                "required": [
+                  "File"
+                ],
+                "properties": {
+                  "File": {
+                    "type": "string",
+                    "format": "binary"
+                  }
+                }
+              }
+            }
+          }
+        }
+      }
+    },
+    "/api/v1/image/{id}": {
+      "delete": {
+        "tags": [
+          "Image"
+        ],
+        "description": "delete gallery image",
+        "parameters": [
+          {
+            "name": "id",
+            "in": "path",
+            "required": true,
+            "schema": {
+              "type": "string"
+            }
+          }
+        ],
+        "responses": {
+          "200": {
+            "description": "Successful"
+          },
+          "400": {
+            "description": "Invalid Request"
+          },
+          "401": {
+            "description": "Unauthenticated"
+          },
+          "500": {
+            "description": "Internal Server Error"
+          }
+        },
+        "security": [
+          {
+            "bearerAuth": []
+          }
+        ]
+      }
     }
   },
   "components": {
