@@ -32,7 +32,6 @@ module.exports = async (req, res, next) => {
             status,
             orientation,
             architect,
-            image,
             address,
             city,
             area,
@@ -47,7 +46,7 @@ module.exports = async (req, res, next) => {
 
         res.status(200).json({
             success: true,
-            message: "Informations updated sucessfully",
+            message: "Information updated successfully",
         });
         // On Error
     } catch (error) {

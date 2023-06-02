@@ -91,9 +91,6 @@ router.post(
                                 "minLength": 40, 
                                 "example": "AR Rahman" 
                             },
-                            "image":{
-                                "type": "string"
-                            },
                             "numberFloors": { 
                                 "type": "integer", 
                                 "minLength": 20, 
@@ -238,9 +235,6 @@ router.patch(
                                 "type": "string", 
                                 "minLength": 10, 
                                 "example": "Uttara"
-                            },
-                            "image":{
-                                "type": "string"
                             },
                             "numberFloors": { 
                                 "type": "integer", 
