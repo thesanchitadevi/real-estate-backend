@@ -43,4 +43,12 @@ router.use(
   // #swagger.tags = ['Landowner']
 );
 
+
+router.use(
+  "/image",
+  require("./image")
+  // #swagger.tags = ['Image']
+);
+
+
 module.exports = router;
