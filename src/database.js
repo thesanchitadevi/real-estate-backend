@@ -4,20 +4,37 @@ const { DB } = require("./configuration");
 const Connection = new Sequelize(DB);
 
 const db = {
-	Sequelize,
-	Connection,
+  Sequelize,
+  Connection,
 };
 
 // Import Database to a base exports
 db.Users = require("./services/v1/users/users.model")(Connection, Sequelize);
 db.Admin = require("./services/v1/admin/admin.model")(Connection, Sequelize);
-db.Projects = require("./services/v1/projects/projects.model")(Connection, Sequelize);
-db.Testimonials = require("./services/v1/testimonial/testimonial.model")(Connection, Sequelize);
-db.Employee = require("./services/v1/employee/employee.model")(Connection, Sequelize);
-db.Landowner = require("./services/v1/landowner/landowner.model")(Connection, Sequelize);
-db.Image = require("./services/v1/image/image.model")(Connection, Sequelize);
-
-
+db.Projects = require("./services/v1/projects/projects.model")(
+  Connection,
+  Sequelize
+);
+db.Testimonials = require("./services/v1/testimonial/testimonial.model")(
+  Connection,
+  Sequelize
+);
+db.Employee = require("./services/v1/employee/employee.model")(
+  Connection,
+  Sequelize
+);
+db.Landowner = require("./services/v1/landowner/landowner.model")(
+  Connection,
+  Sequelize
+);
+db.Image = require("./services/v1/image/image.model")(
+ Connection, 
+ Sequelize
+);
+db.Buyer = require("./services/v1/buyer/buyer.model")(
+ Connection, 
+ Sequelize
+);
 
 // Relation Ships
 
@@ -41,7 +58,8 @@ db.Landowner.belongsTo(db.Admin, { as: "updatedBy" });
 db.Image.belongsTo(db.Admin, { as: "createdBy" });
 db.Image.belongsTo(db.Admin, { as: "updatedBy" });
 
-
-
+// - Buyer
+db.Buyer.belongsTo(db.Admin, { as: "createdBy" });
+db.Buyer.belongsTo(db.Admin, { as: "updatedBy" });
 
 module.exports = db;

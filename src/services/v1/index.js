@@ -43,12 +43,16 @@ router.use(
   // #swagger.tags = ['Landowner']
 );
 
+router.use(
+  "/buyer",
+  require("./buyer")
+  // #swagger.tags = ['Buyer']
+);
 
 router.use(
   "/image",
   require("./image")
   // #swagger.tags = ['Image']
 );
-
 
 module.exports = router;
