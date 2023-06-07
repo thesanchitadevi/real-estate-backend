@@ -36,6 +36,7 @@ db.Buyer = require("./services/v1/buyer/buyer.model")(
  Sequelize
 );
 
+
 // Relation Ships
 
 // - Projects

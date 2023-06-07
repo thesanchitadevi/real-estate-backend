@@ -91,9 +91,6 @@ router.post(
                                 "minLength": 40, 
                                 "example": "AR Rahman" 
                             },
-                            "image":{
-                                "type": "string"
-                            },
                             "numberFloors": { 
                                 "type": "integer", 
                                 "minLength": 20, 
@@ -160,6 +157,22 @@ router.post(
     */
 );
 
+/* get all banner list */
+router.get(
+    "/banner",
+    projectsSchema.getBanners
+    /* 	
+        #swagger.description = 'Get Banner Images' 
+
+        #swagger.responses[200] = {
+            description: "Successful",
+        }   
+        #swagger.responses[500] = {
+            description: "Internal Server Error",
+        }   
+    */
+)
+
 /* to get single project information */
 router.get(
     "/:id",
@@ -179,6 +192,7 @@ router.get(
         }   
     */
 );
+;
 
 /* to update single project details */
 router.patch(
@@ -221,9 +235,6 @@ router.patch(
                                 "type": "string", 
                                 "minLength": 10, 
                                 "example": "Uttara"
-                            },
-                            "image":{
-                                "type": "string"
                             },
                             "numberFloors": { 
                                 "type": "integer", 
@@ -299,6 +310,75 @@ router.delete(
         #swagger.deprecated = true
 
         #swagger.description = 'Delete a project' 
+
+        #swagger.security = [{
+            "bearerAuth": []
+        }]
+
+        #swagger.responses[200] = {
+            description: "Successful",
+        }   
+        #swagger.responses[400] = {
+            description: "Invalid Request",
+        }   
+        #swagger.responses[401] = {
+            description: "Unauthenticated",
+        }   
+        #swagger.responses[500] = {
+            description: "Internal Server Error",
+        }   
+    */
+);
+
+
+router.post(
+    "/banner",
+    projectsSchema.uploadBanner
+    /* 
+        #swagger.description = 'Upload Banner' 
+
+        #swagger.security = [{
+            "bearerAuth": []
+        }]
+
+        #swagger.consumes = ['multipart/form-data']  
+        
+        #swagger.requestBody = {
+            content: {
+                "multipart/form-data": {
+                    schema: {
+                        required: ["File"],
+                        properties: {
+                            File: {
+                                type: "string",
+                                format: "binary"
+                            }
+                        }
+                    }
+                }
+            }
+        }
+
+        #swagger.responses[201] = {
+            description: "Successful",
+        }   
+        #swagger.responses[400] = {
+            description: "Invalid Request",
+        }   
+        #swagger.responses[401] = {
+            description: "Unauthenticated",
+        }   
+        #swagger.responses[500] = {
+            description: "Internal Server Error",
+        }   
+    */
+);
+
+router.delete(
+    "/banner/:id",
+    projectsSchema.deleteBanner
+    /* 
+        #swagger.description = 'delete banner image' 
 
         #swagger.security = [{
             "bearerAuth": []

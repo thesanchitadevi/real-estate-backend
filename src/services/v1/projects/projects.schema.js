@@ -1,6 +1,7 @@
 const { adminAuthorized } = require("../../../authentication");
 const paginationPostMiddleware = require("../../../utilities/pagination/pagination.post.middleware");
 const paginationPreMiddleware = require("../../../utilities/pagination/pagination.pre.middleware");
+const { upload } = require("../../../utilities/upload/upload.pre.middleware");
 
 module.exports = {
     create: [adminAuthorized, require("./controller/create")],
@@ -15,4 +16,16 @@ module.exports = {
         require("./controller/update"),
     ],
     deleteById: [adminAuthorized, require("./controller/delete")],
+    // Banner
+    getBanners: [
+        paginationPreMiddleware,
+        require("./controller/getBannerImages"),
+        paginationPostMiddleware,
+    ],
+    uploadBanner: [
+        adminAuthorized,
+        upload.single("File"),
+        require("./controller/uploadBannerImage"),
+    ],
+    deleteBanner: [adminAuthorized, require("./controller/deleteBannerImage")],
 };
