@@ -40,6 +40,7 @@ db.Contact = require("./services/v1/contact/contact.model")(
   Sequelize
 );
 
+
 // Relation Ships
 
 // - Projects
