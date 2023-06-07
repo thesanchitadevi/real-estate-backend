@@ -1740,6 +1740,115 @@
           }
         ]
       }
+    },
+    "/api/v1/contact/": {
+      "post": {
+        "tags": [
+          "Contact"
+        ],
+        "description": "Create a new contact",
+        "parameters": [],
+        "responses": {
+          "201": {
+            "description": "Successful"
+          },
+          "400": {
+            "description": "Invalid Request"
+          },
+          "401": {
+            "description": "Unauthenticated"
+          },
+          "500": {
+            "description": "Internal Server Error"
+          }
+        },
+        "security": [
+          {
+            "bearerAuth": []
+          }
+        ],
+        "requestBody": {
+          "required": true,
+          "content": {
+            "application/json": {
+              "schema": {
+                "required": [
+                  "contactName",
+                  "Email",
+                  "phoneNumber",
+                  "message"
+                ],
+                "properties": {
+                  "contactName": {
+                    "type": "string",
+                    "minLength": 10,
+                    "example": "Farjana"
+                  },
+                  "Email": {
+                    "type": "string",
+                    "minLength": 10,
+                    "example": "farjana@gmail.com"
+                  },
+                  "phoneNumber": {
+                    "type": "string",
+                    "minLength": 11,
+                    "example": "01234567891"
+                  },
+                  "messsage": {
+                    "type": "string",
+                    "minLength": 5,
+                    "example": "build my building carefully"
+                  }
+                }
+              }
+            }
+          }
+        }
+      },
+      "get": {
+        "tags": [
+          "Contact"
+        ],
+        "description": "Get all contact list",
+        "parameters": [
+          {
+            "name": "search",
+            "in": "query",
+            "schema": {
+              "type": "string"
+            }
+          },
+          {
+            "name": "limit",
+            "in": "query",
+            "schema": {
+              "type": "number"
+            }
+          },
+          {
+            "name": "page",
+            "in": "query",
+            "schema": {
+              "type": "number"
+            }
+          },
+          {
+            "name": "sort",
+            "in": "query",
+            "schema": {
+              "type": "string"
+            }
+          }
+        ],
+        "responses": {
+          "200": {
+            "description": "Successful"
+          },
+          "500": {
+            "description": "Internal Server Error"
+          }
+        }
+      }
     }
   },
   "components": {

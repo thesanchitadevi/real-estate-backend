@@ -28,12 +28,16 @@ db.Landowner = require("./services/v1/landowner/landowner.model")(
   Sequelize
 );
 db.Image = require("./services/v1/image/image.model")(
- Connection, 
- Sequelize
+  Connection, 
+  Sequelize
 );
 db.Buyer = require("./services/v1/buyer/buyer.model")(
- Connection, 
- Sequelize
+  Connection, 
+  Sequelize
+);
+db.Contact = require("./services/v1/contact/contact.model")(
+  Connection,
+  Sequelize
 );
 
 // Relation Ships
@@ -61,5 +65,9 @@ db.Image.belongsTo(db.Admin, { as: "updatedBy" });
 // - Buyer
 db.Buyer.belongsTo(db.Admin, { as: "createdBy" });
 db.Buyer.belongsTo(db.Admin, { as: "updatedBy" });
+
+// - Contact
+db.Contact.belongsTo(db.Admin, { as: "createdBy" });
+db.Contact.belongsTo(db.Admin, { as: "updatedBy" });
 
 module.exports = db;
