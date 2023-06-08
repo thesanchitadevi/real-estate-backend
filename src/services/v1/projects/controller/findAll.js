@@ -18,6 +18,11 @@ module.exports = async (req, _res, next) => {
                             [Op.like]: `%${req.search}%`,
                         },
                     },
+                    {
+                        area: {
+                            [Op.like]: `%${req.search}%`,
+                        },
+                    },
                 ],
             },
             attributes: {
