@@ -80,7 +80,7 @@ router.post(
                                 "enum": ["Lakeside","Cornerplot","Mainroad","Parkview","Others"],
                                 "example": "Lakeside"
                             },
-                            orientation": { 
+                            "orientation": { 
                                 "type": "string",
                                 "enum": ["East","West","North","South"],
                                 "example": "North" 
