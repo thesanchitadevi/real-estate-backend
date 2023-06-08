@@ -1531,84 +1531,152 @@
             "bearerAuth": []
           }
         ],
+        "requestBody": {}
+      },
+      "get": {
+        "tags": [
+          "Landowner"
+        ],
+        "description": "Get all landowner list",
+        "parameters": [
+          {
+            "name": "search",
+            "in": "query",
+            "schema": {
+              "type": "string"
+            }
+          },
+          {
+            "name": "limit",
+            "in": "query",
+            "schema": {
+              "type": "number"
+            }
+          },
+          {
+            "name": "page",
+            "in": "query",
+            "schema": {
+              "type": "number"
+            }
+          },
+          {
+            "name": "sort",
+            "in": "query",
+            "schema": {
+              "type": "string"
+            }
+          }
+        ],
+        "responses": {
+          "200": {
+            "description": "Successful"
+          },
+          "500": {
+            "description": "Internal Server Error"
+          }
+        }
+      }
+    },
+    "/api/v1/buyer/": {
+      "post": {
+        "tags": [
+          "Buyer"
+        ],
+        "description": "Create a new buyer",
+        "parameters": [],
+        "responses": {
+          "201": {
+            "description": "Successful"
+          },
+          "400": {
+            "description": "Invalid Request"
+          },
+          "401": {
+            "description": "Unauthenticated"
+          },
+          "500": {
+            "description": "Internal Server Error"
+          }
+        },
+        "security": [
+          {
+            "bearerAuth": []
+          }
+        ],
         "requestBody": {
           "required": true,
           "content": {
             "application/json": {
               "schema": {
                 "required": [
-                  "landownerName",
-                  "landownerEmail",
+                  "buyerName",
+                  "buyerEmail",
+                  "buyerProfession",
                   "phoneNumber",
-                  "alterLandownerName",
-                  "locality",
-                  "fullAddress",
-                  "landSize",
-                  "width",
-                  "category",
+                  "handoverDate",
+                  "orientation",
+                  "preferredLocation",
+                  "preferredSize",
+                  "preferredFloor",
                   "attractiveFeature",
-                  "facing"
+                  "numberofBathroom",
+                  "numberofBedroom",
+                  "parkingSize"
                 ],
                 "properties": {
-                  "landownerName": {
+                  "buyerName": {
                     "type": "string",
                     "minLength": 10,
                     "example": "Farjana Moon"
                   },
-                  "landownerEmail": {
+                  "buyerEmail": {
                     "type": "string",
-                    "minLength": 10,
-                    "example": "farjanamoon@gmail.com"
+                    "minLength": 5,
+                    "example": "khan@gmail.com"
+                  },
+                  "buyerProfession": {
+                    "type": "string",
+                    "minLength": 3,
+                    "example": "progrommer"
                   },
                   "phoneNumber": {
                     "type": "string",
                     "minLength": 11,
                     "example": "01234567891"
                   },
-                  "alterLandownerName": {
-                    "type": "string",
-                    "miniLength": 10,
-                    "example": "Utsha Khan"
+                  "handoverDate": {
+                    "type": "date",
+                    "pattern": "YYYY-MM-DD",
+                    "example": "2023-01-19"
                   },
-                  "locality": {
+                  "preferredLocation": {
                     "type": "string",
-                    "example": "Uttara"
-                  },
-                  "fullAddress": {
-                    "type": "string",
-                    "minLength": 10,
+                    "minLength": 5,
                     "example": "Hazibari, Uttara, Dhaka"
                   },
-                  "landSize": {
-                    "type": "string",
-                    "minLength": 10,
-                    "example": "100 sq/ft"
-                  },
-                  "width": {
+                  "preferredSize": {
                     "type": "string",
                     "minLength": 5,
                     "example": "100 sq/ft"
                   },
-                  "category": {
-                    "type": "string",
-                    "enum": [
-                      "freehold",
-                      "leasehold"
-                    ],
-                    "example": "freehold"
+                  "preferredFloor": {
+                    "type": "integer",
+                    "example": 5
+                  },
+                  "numberofBathroom": {
+                    "type": "integer",
+                    "example": 3
+                  },
+                  "numberofBedroom": {
+                    "type": "integer",
+                    "example": 5
                   },
                   "attractiveFeature": {
                     "type": "string",
-                    "enum": [
-                      "Lakeside",
-                      "Cornerplot",
-                      "Mainroad",
-                      "Parkview",
-                      "Others"
-                    ],
                     "example": "Lakeside"
                   },
-                  "facing": {
+                  "orientation": {
                     "type": "string",
                     "enum": [
                       "East",
@@ -1617,6 +1685,10 @@
                       "South"
                     ],
                     "example": "North"
+                  },
+                  "parkingSize": {
+                    "type": "integer",
+                    "example": 10
                   }
                 }
               }
@@ -1626,9 +1698,9 @@
       },
       "get": {
         "tags": [
-          "Landowner"
+          "Buyer"
         ],
-        "description": "Get all landowner list",
+        "description": "Get all buyer list",
         "parameters": [
           {
             "name": "search",
@@ -1764,6 +1836,115 @@
             "bearerAuth": []
           }
         ]
+      }
+    },
+    "/api/v1/contact/": {
+      "post": {
+        "tags": [
+          "Contact"
+        ],
+        "description": "Create a new contact",
+        "parameters": [],
+        "responses": {
+          "201": {
+            "description": "Successful"
+          },
+          "400": {
+            "description": "Invalid Request"
+          },
+          "401": {
+            "description": "Unauthenticated"
+          },
+          "500": {
+            "description": "Internal Server Error"
+          }
+        },
+        "security": [
+          {
+            "bearerAuth": []
+          }
+        ],
+        "requestBody": {
+          "required": true,
+          "content": {
+            "application/json": {
+              "schema": {
+                "required": [
+                  "contactName",
+                  "Email",
+                  "phoneNumber",
+                  "message"
+                ],
+                "properties": {
+                  "contactName": {
+                    "type": "string",
+                    "minLength": 10,
+                    "example": "Farjana"
+                  },
+                  "Email": {
+                    "type": "string",
+                    "minLength": 10,
+                    "example": "farjana@gmail.com"
+                  },
+                  "phoneNumber": {
+                    "type": "string",
+                    "minLength": 11,
+                    "example": "01234567891"
+                  },
+                  "messsage": {
+                    "type": "string",
+                    "minLength": 5,
+                    "example": "build my building carefully"
+                  }
+                }
+              }
+            }
+          }
+        }
+      },
+      "get": {
+        "tags": [
+          "Contact"
+        ],
+        "description": "Get all contact list",
+        "parameters": [
+          {
+            "name": "search",
+            "in": "query",
+            "schema": {
+              "type": "string"
+            }
+          },
+          {
+            "name": "limit",
+            "in": "query",
+            "schema": {
+              "type": "number"
+            }
+          },
+          {
+            "name": "page",
+            "in": "query",
+            "schema": {
+              "type": "number"
+            }
+          },
+          {
+            "name": "sort",
+            "in": "query",
+            "schema": {
+              "type": "string"
+            }
+          }
+        ],
+        "responses": {
+          "200": {
+            "description": "Successful"
+          },
+          "500": {
+            "description": "Internal Server Error"
+          }
+        }
       }
     }
   },

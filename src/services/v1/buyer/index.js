@@ -1,12 +1,12 @@
 const express = require("express");
-const landownerScema = require("./landowner.scema");
+const buyerScema = require("./buyer.scema");
 const router = express.Router();
 
 router.post(
   "/",
-  landownerScema.create
+  buyerScema.create
   /* 
-        #swagger.description = 'Create a new landowner' 
+        #swagger.description = 'Create a new buyer' 
 
         #swagger.security = [{
             "bearerAuth": []
@@ -18,72 +18,82 @@ router.post(
                 "application/json": {
                     schema: {
                         "required": [
-                                     "landownerName",
-                                     "landownerEmail",
+                                     "buyerName",
+                                     "buyerEmail",
+                                     "buyerProfession",
                                      "phoneNumber",
-                                     "alterLandownerName",
-                                     "locality",
-                                     "fullAddress",
-                                     "landSize",
-                                     "width",
-                                     "category",
+                                     "handoverDate",
+                                     "orientation",
+                                     "preferredLocation",
+                                     "preferredSize",
+                                     "preferredFloor",
                                      "attractiveFeature",
-                                     "orientation",  
+                                     "numberofBathroom",  
+                                     "numberofBedroom",
+                                     "parkingSize",
+                                     
                                 ],
                         "properties": { 
-                            "landownerName": { 
+                            "buyerName": { 
                                 "type": "string", 
                                 "minLength":10, 
-                                "example": "Farjana Moon" 
+                                "example": "Farjana Moon"  
                             },
-                            "landownerEmail": { 
+                            "buyerEmail": { 
                                 "type": "string", 
-                                "minLength": 10, 
-                                "example": "farjanamoon@gmail.com" 
+                                "minLength": 5, 
+                                "example":"khan@gmail.com" 
+                            },
+                            "buyerProfession":{
+                                "type": "string", 
+                                "minLength": 3, 
+                                "example": "progrommer" 
                             },
                             "phoneNumber": { 
                                 "type": "string", 
                                 "minLength": 11,
                                 "example": "01234567891" 
                             },
-                            "alterLandownerName": {
-                                "type": "string",
-                                "miniLength": 10,
-                                "example": "Utsha Khan"
+                            "handoverDate": {
+                                "type": "date",
+                                "pattern": "YYYY-MM-DD",
+                                "example": "2023-01-19"
                             },
-                            "locality": { 
-                                "type": "string", 
-                                "example": "Uttara"
-                            },
-                            "fullAddress": { 
-                                "type": "string", 
-                                "minLength": 10, 
-                                "example": "Hazibari, Uttara, Dhaka"
-                            },
-                            "landSize": { 
-                                "type": "string", 
-                                "minLength": 10, 
-                                "example": "100 sq/ft" 
-                            },
-                            "width": { 
+                            "preferredLocation": { 
                                 "type": "string", 
                                 "minLength": 5, 
+                                "example": "Hazibari, Uttara, Dhaka"
+                            },
+                            "preferredSize": { 
+                                "type": "string", 
+                                "minLength": 05, 
                                 "example": "100 sq/ft" 
                             },
-                            "category": { 
-                                "type": "string", 
-                                "enum": ["freehold", "leasehold"],
-                                "example": "freehold"
+                            "preferredFloor": { 
+                                "type": "integer",  
+                                "example": 5
                             },
+                            "numberofBathroom": { 
+                                "type": "integer", 
+                                "example": 3
+                            },
+                            "numberofBedroom": { 
+                                "type": "integer", 
+                                "example": 5
+                            },
+
                             "attractiveFeature": { 
                                 "type": "string", 
-                                "enum": ["Lakeside","Cornerplot","Mainroad","Parkview","Others"],
                                 "example": "Lakeside"
                             },
-                            orientation": { 
+                            "orientation": { 
                                 "type": "string",
                                 "enum": ["East","West","North","South"],
                                 "example": "North" 
+                            },
+                            "parkingSize": { 
+                                "type": "integer", 
+                                "example": 10
                             }
                         } 
                     },
@@ -107,10 +117,10 @@ router.post(
 );
 
 router.get(
-    "/",
-    landownerScema.getAll
-    /* 	
-        #swagger.description = 'Get all landowner list' 
+  "/",
+  buyerScema.getAll
+  /* 	
+        #swagger.description = 'Get all buyer list' 
 
         #swagger.parameters['search'] = {
             in: 'query',
