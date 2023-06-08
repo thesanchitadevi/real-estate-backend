@@ -748,9 +748,6 @@
                     "minLength": 40,
                     "example": "AR Rahman"
                   },
-                  "image": {
-                    "type": "string"
-                  },
                   "numberFloors": {
                     "type": "integer",
                     "minLength": 20,
@@ -807,6 +804,66 @@
                     "type": "string",
                     "pattern": "YYYY-MM-DD",
                     "example": "2023-01-19"
+                  }
+                }
+              }
+            }
+          }
+        }
+      }
+    },
+    "/api/v1/projects/banner": {
+      "get": {
+        "tags": [
+          "Projects"
+        ],
+        "description": "Get Banner Images",
+        "parameters": [],
+        "responses": {
+          "200": {
+            "description": "Successful"
+          },
+          "500": {
+            "description": "Internal Server Error"
+          }
+        }
+      },
+      "post": {
+        "tags": [
+          "Projects"
+        ],
+        "description": "Upload Banner",
+        "parameters": [],
+        "responses": {
+          "201": {
+            "description": "Successful"
+          },
+          "400": {
+            "description": "Invalid Request"
+          },
+          "401": {
+            "description": "Unauthenticated"
+          },
+          "500": {
+            "description": "Internal Server Error"
+          }
+        },
+        "security": [
+          {
+            "bearerAuth": []
+          }
+        ],
+        "requestBody": {
+          "content": {
+            "multipart/form-data": {
+              "schema": {
+                "required": [
+                  "File"
+                ],
+                "properties": {
+                  "File": {
+                    "type": "string",
+                    "format": "binary"
                   }
                 }
               }
@@ -908,9 +965,6 @@
                     "minLength": 10,
                     "example": "Uttara"
                   },
-                  "image": {
-                    "type": "string"
-                  },
                   "numberFloors": {
                     "type": "integer",
                     "minLength": 20,
@@ -1009,66 +1063,6 @@
           }
         ],
         "deprecated": true
-      }
-    },
-    "/api/v1/projects/banner": {
-      "get": {
-        "tags": [
-          "Projects"
-        ],
-        "description": "Get Banner Images",
-        "parameters": [],
-        "responses": {
-          "200": {
-            "description": "Successful"
-          },
-          "500": {
-            "description": "Internal Server Error"
-          }
-        }
-      },
-      "post": {
-        "tags": [
-          "Projects"
-        ],
-        "description": "Upload Banner",
-        "parameters": [],
-        "responses": {
-          "201": {
-            "description": "Successful"
-          },
-          "400": {
-            "description": "Invalid Request"
-          },
-          "401": {
-            "description": "Unauthenticated"
-          },
-          "500": {
-            "description": "Internal Server Error"
-          }
-        },
-        "security": [
-          {
-            "bearerAuth": []
-          }
-        ],
-        "requestBody": {
-          "content": {
-            "multipart/form-data": {
-              "schema": {
-                "required": [
-                  "File"
-                ],
-                "properties": {
-                  "File": {
-                    "type": "string",
-                    "format": "binary"
-                  }
-                }
-              }
-            }
-          }
-        }
       }
     },
     "/api/v1/projects/banner/{id}": {
@@ -1531,7 +1525,98 @@
             "bearerAuth": []
           }
         ],
-        "requestBody": {}
+        "requestBody": {
+          "required": true,
+          "content": {
+            "application/json": {
+              "schema": {
+                "required": [
+                  "landownerName",
+                  "landownerEmail",
+                  "phoneNumber",
+                  "alterLandownerName",
+                  "locality",
+                  "fullAddress",
+                  "landSize",
+                  "width",
+                  "category",
+                  "attractiveFeature",
+                  "orientation"
+                ],
+                "properties": {
+                  "landownerName": {
+                    "type": "string",
+                    "minLength": 10,
+                    "example": "Farjana Moon"
+                  },
+                  "landownerEmail": {
+                    "type": "string",
+                    "minLength": 10,
+                    "example": "farjanamoon@gmail.com"
+                  },
+                  "phoneNumber": {
+                    "type": "string",
+                    "minLength": 11,
+                    "example": "01234567891"
+                  },
+                  "alterLandownerName": {
+                    "type": "string",
+                    "miniLength": 10,
+                    "example": "Utsha Khan"
+                  },
+                  "locality": {
+                    "type": "string",
+                    "example": "Uttara"
+                  },
+                  "fullAddress": {
+                    "type": "string",
+                    "minLength": 10,
+                    "example": "Hazibari, Uttara, Dhaka"
+                  },
+                  "landSize": {
+                    "type": "string",
+                    "minLength": 10,
+                    "example": "100 sq/ft"
+                  },
+                  "width": {
+                    "type": "string",
+                    "minLength": 5,
+                    "example": "100 sq/ft"
+                  },
+                  "category": {
+                    "type": "string",
+                    "enum": [
+                      "freehold",
+                      "leasehold"
+                    ],
+                    "example": "freehold"
+                  },
+                  "attractiveFeature": {
+                    "type": "string",
+                    "enum": [
+                      "Lakeside",
+                      "Cornerplot",
+                      "Mainroad",
+                      "Parkview",
+                      "Others"
+                    ],
+                    "example": "Lakeside"
+                  },
+                  "orientation": {
+                    "type": "string",
+                    "enum": [
+                      "East",
+                      "West",
+                      "North",
+                      "South"
+                    ],
+                    "example": "North"
+                  }
+                }
+              }
+            }
+          }
+        }
       },
       "get": {
         "tags": [

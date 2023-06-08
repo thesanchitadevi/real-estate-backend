@@ -43,7 +43,7 @@ module.exports = (sequelize, Sequelize) => {
             allowNull: true,
             values: ['Lakeside','Cornerplot','Mainroad','Parkview','Others']
         },
-        orientation: {
+        facing: {
             type: Sequelize.ENUM,
             allowNull: true,
             values: ['East','West','North','South']
