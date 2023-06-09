@@ -8,10 +8,6 @@ router.post(
   /* 
         #swagger.description = 'Create a new buyer' 
 
-        #swagger.security = [{
-            "bearerAuth": []
-        }]
-
         #swagger.requestBody = {
             required: true,
             content: {
