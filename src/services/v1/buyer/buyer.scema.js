@@ -3,10 +3,10 @@ const paginationPostMiddleware = require("../../../utilities/pagination/paginati
 const paginationPreMiddleware = require("../../../utilities/pagination/pagination.pre.middleware");
 
 module.exports = {
-  create: [adminAuthorized, require("./controller/create")],
+  create: require("./controller/create"),
   getAll: [
-      paginationPreMiddleware,
-      require("./controller/findAll"),
-      paginationPostMiddleware,
+    paginationPreMiddleware,
+    require("./controller/findAll"),
+    paginationPostMiddleware,
   ],
 };

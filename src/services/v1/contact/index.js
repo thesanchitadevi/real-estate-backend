@@ -8,10 +8,6 @@ router.post(
   /* 
         #swagger.description = 'Create a new contact' 
 
-        #swagger.security = [{
-            "bearerAuth": []
-        }]
-
         #swagger.requestBody = {
             required: true,
             content: {

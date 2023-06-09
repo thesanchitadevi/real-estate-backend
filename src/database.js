@@ -55,20 +55,10 @@ db.Testimonials.belongsTo(db.Admin, { as: "updatedBy" });
 db.Employee.belongsTo(db.Admin, { as: "createdBy" });
 db.Employee.belongsTo(db.Admin, { as: "updatedBy" });
 
-// - Landowner
-db.Landowner.belongsTo(db.Admin, { as: "createdBy" });
-db.Landowner.belongsTo(db.Admin, { as: "updatedBy" });
-
 // - Image
 db.Image.belongsTo(db.Admin, { as: "createdBy" });
 db.Image.belongsTo(db.Admin, { as: "updatedBy" });
 
-// - Buyer
-db.Buyer.belongsTo(db.Admin, { as: "createdBy" });
-db.Buyer.belongsTo(db.Admin, { as: "updatedBy" });
 
-// - Contact
-db.Contact.belongsTo(db.Admin, { as: "createdBy" });
-db.Contact.belongsTo(db.Admin, { as: "updatedBy" });
 
 module.exports = db;
