@@ -1536,7 +1536,7 @@
                   "width",
                   "category",
                   "attractiveFeature",
-                  "orientation"
+                  "facing"
                 ],
                 "properties": {
                   "landownerName": {
@@ -1597,7 +1597,7 @@
                     ],
                     "example": "Lakeside"
                   },
-                  "orientation": {
+                  "facing": {
                     "type": "string",
                     "enum": [
                       "East",

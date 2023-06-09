@@ -31,7 +31,6 @@ module.exports = (sequelize, Sequelize) => {
         width:  {                         //front road
             type: Sequelize.STRING,
             allowNull: true,
-
         },
         category: {
             type: Sequelize.ENUM,
@@ -48,8 +47,6 @@ module.exports = (sequelize, Sequelize) => {
             allowNull: true,
             values: ['East','West','North','South']
         },
-
-
     });
 
     return Landowner;
