@@ -14,7 +14,7 @@ module.exports = async (req, res, next) => {
             width,
             category,
             attractiveFeature,
-            orientation,
+            facing,
         } = req.body;
 
         await Landowner.create({
@@ -28,9 +28,7 @@ module.exports = async (req, res, next) => {
             width,
             category,
             attractiveFeature,
-            orientation,
-            
-            createdById: req.user.id,
+            facing,
         });
 
 

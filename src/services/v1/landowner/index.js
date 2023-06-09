@@ -24,7 +24,7 @@ router.post(
                                      "width",
                                      "category",
                                      "attractiveFeature",
-                                     "orientation",  
+                                     "facing",  
                                 ],
                         "properties": { 
                             "landownerName": { 
@@ -76,7 +76,7 @@ router.post(
                                 "enum": ["Lakeside","Cornerplot","Mainroad","Parkview","Others"],
                                 "example": "Lakeside"
                             },
-                            "orientation": { 
+                            "facing": { 
                                 "type": "string",
                                 "enum": ["East","West","North","South"],
                                 "example": "North" 
