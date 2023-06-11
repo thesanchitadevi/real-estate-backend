@@ -47,6 +47,11 @@ module.exports = (sequelize, Sequelize) => {
             allowNull: true,
             values: ['East','West','North','South']
         },
+        isRead: {
+            type: Sequelize.BOOLEAN,
+            allowNull: false,
+            defaultValue: false,
+        }
     });
 
     return Landowner;
