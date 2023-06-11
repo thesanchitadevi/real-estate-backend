@@ -18,9 +18,7 @@ module.exports = {
     deleteById: [adminAuthorized, require("./controller/delete")],
     // Banner
     getBanners: [
-        paginationPreMiddleware,
         require("./controller/getBannerImages"),
-        paginationPostMiddleware,
     ],
     uploadBanner: [
         adminAuthorized,

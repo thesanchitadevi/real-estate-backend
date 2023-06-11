@@ -17,6 +17,7 @@ db.Employee = require("./services/v1/employee/employee.model")(Connection, Seque
 db.Landowner = require("./services/v1/landowner/landowner.model")(Connection, Sequelize);
 db.Banner = require("./services/v1/projects/banner.model")(Connection, Sequelize);
 db.Image = require("./services/v1/image/image.model")(Connection, Sequelize);
+db.ProjectBanner = require("./services/v1/projects/projectBanner.model")(Connection, Sequelize);
 
 
 
@@ -42,7 +43,8 @@ db.Landowner.belongsTo(db.Admin, { as: "updatedBy" });
 db.Image.belongsTo(db.Admin, { as: "createdBy" });
 db.Image.belongsTo(db.Admin, { as: "updatedBy" });
 
-
+//- ProjectBanner
+db.ProjectBanner.belongsTo(db.Projects, { as: "project" });
 
 
 module.exports = db;

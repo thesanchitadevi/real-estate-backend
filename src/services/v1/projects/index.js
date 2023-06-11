@@ -159,7 +159,7 @@ router.post(
 
 /* get all banner list */
 router.get(
-    "/banner",
+    "/:id/banner",
     projectsSchema.getBanners
     /* 	
         #swagger.description = 'Get Banner Images' 
@@ -332,7 +332,7 @@ router.delete(
 
 
 router.post(
-    "/banner",
+    "/:id/banner",
     projectsSchema.uploadBanner
     /* 
         #swagger.description = 'Upload Banner' 
@@ -375,7 +375,7 @@ router.post(
 );
 
 router.delete(
-    "/banner/:id",
+    "/:id/banner/:id",
     projectsSchema.deleteBanner
     /* 
         #swagger.description = 'delete banner image' 

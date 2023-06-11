@@ -1,4 +1,4 @@
-const { Banner } = require("../../../../database");
+const {  ProjectBanner } = require("../../../../database");
 
 module.exports = async (req, res, next) => {
 	// Get Values
@@ -7,8 +7,9 @@ module.exports = async (req, res, next) => {
 		if (!req.file.filename)
 			return next(new ErrorResponse("No attachment found!", 404));
 
-		await Banner.create({
+		await ProjectBanner.create({
 			filename: req.file.filename,
+			projectId: req.params.id,
 		});
 
 		res.status(201).json({

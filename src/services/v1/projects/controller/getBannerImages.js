@@ -1,13 +1,18 @@
-const { Op } = require("sequelize");
-const { Banner } = require("../../../../database");
+const { ProjectBanner } = require("../../../../database");
 
-module.exports = async (req, _res, next) => {
+module.exports = async (req, res, next) => {
 	// Get Values
 
 	try {
-		req.data = await Banner.findAndCountAll({});
 
-		next();
+		res.json({
+			data: await ProjectBanner.findAll({
+				projectId: req.params.id,
+			}),
+			success: true,
+			message: "Banner gets successfully.",
+		})
+
 
 		// On Error
 	} catch (error) {
