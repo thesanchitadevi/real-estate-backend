@@ -4,19 +4,19 @@ module.exports = async (req, res, next) => {
   // Get Values
   try {
     const {
-        buyerName,
-        buyerEmail,
-        buyerProfession,
-        phoneNumber,
-        handoverDate,
-        orientation,
-        preferredLocation,
-        preferredSize,
-        preferredFloor,
-        attractiveFeature,
-        numberofBathroom,
-        numberofBedroom,
-        parkingSize,
+      buyerName,
+      buyerEmail,
+      buyerProfession,
+      phoneNumber,
+      handoverDate,
+      orientation,
+      preferredLocation,
+      preferredSize,
+      preferredFloor,
+      attractiveFeature,
+      numberofBathroom,
+      numberofBedroom,
+      parkingSize,
     } = req.body;
 
     await Buyer.create({

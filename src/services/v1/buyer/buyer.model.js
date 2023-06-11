@@ -45,17 +45,19 @@ module.exports = (sequelize, Sequelize) => {
       type: Sequelize.INTEGER,
       allowNull: true,
     },
-
     parkingSize: {
-      //
       type: Sequelize.STRING,
       allowNull: true,
     },
-
     attractiveFeature: {
       type: Sequelize.STRING,
       allowNull: true,
     },
+    isRead: {
+      type: Sequelize.BOOLEAN,
+      allowNull: false,
+      defaultValue: false,
+    }
   });    //mailing address ki daoai lagbe?
 
   return Buyer;

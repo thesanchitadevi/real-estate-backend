@@ -16,7 +16,11 @@ module.exports = (sequelize, Sequelize) => {
             type: Sequelize.STRING,
             allowNull: true,
         },
-
+        isRead: {
+            type: Sequelize.BOOLEAN,
+            allowNull: false,
+            defaultValue: false,
+        }
     });
 
     return Contact;

@@ -77,7 +77,6 @@ router.post(
                                 "type": "integer", 
                                 "example": 5
                             },
-
                             "attractiveFeature": { 
                                 "type": "string", 
                                 "example": "Lakeside"
@@ -90,6 +89,10 @@ router.post(
                             "parkingSize": { 
                                 "type": "integer", 
                                 "example": 10
+                            },
+                            "isRead" : {
+                                "type": "boolean",
+                                "example": "false"
                             }
                         } 
                     },
@@ -137,6 +140,32 @@ router.get(
 
         #swagger.responses[200] = {
             description: "Successful",
+        }   
+        #swagger.responses[500] = {
+            description: "Internal Server Error",
+        }   
+    */
+);
+
+router.put(
+    "/:id",
+    buyerScema.markAsRead
+    /* 
+        #swagger.description = 'Update as read' 
+
+        #swagger.security = [{
+            "bearerAuth": []
+        }]
+
+
+        #swagger.responses[200] = {
+            description: "Successful",
+        }   
+        #swagger.responses[400] = {
+            description: "Invalid Request",
+        }   
+        #swagger.responses[401] = {
+            description: "Unauthenticated",
         }   
         #swagger.responses[500] = {
             description: "Internal Server Error",

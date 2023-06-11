@@ -41,7 +41,10 @@ router.post(
                                   "minLength": 200,
                                   "example": "build my building carefully" 
                               },
-                             
+                             "isRead" : {
+                                "type": "boolean",
+                                "example": "false"
+                            }
                           } 
                       },
                   }
@@ -88,6 +91,32 @@ router.get(
 
         #swagger.responses[200] = {
             description: "Successful",
+        }   
+        #swagger.responses[500] = {
+            description: "Internal Server Error",
+        }   
+    */
+);
+
+router.put(
+    "/:id",
+    contactScema.markAsRead
+    /* 
+        #swagger.description = 'Update as read' 
+
+        #swagger.security = [{
+            "bearerAuth": []
+        }]
+
+
+        #swagger.responses[200] = {
+            description: "Successful",
+        }   
+        #swagger.responses[400] = {
+            description: "Invalid Request",
+        }   
+        #swagger.responses[401] = {
+            description: "Unauthenticated",
         }   
         #swagger.responses[500] = {
             description: "Internal Server Error",

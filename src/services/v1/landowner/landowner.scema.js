@@ -8,4 +8,5 @@ module.exports = {
     require("./controller/findAll"),
     paginationPostMiddleware,
   ],
+  markAsRead: require("./controller/toggle")
 };
