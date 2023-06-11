@@ -15,23 +15,6 @@ module.exports = async (req, _res, next) => {
                     },
                 ],
             },
-            attributes: {
-                exclude: ["createdById", "updatedById"],
-            },
-            include: [
-                {
-                    association: "createdBy",
-                    attributes: {
-                        exclude: ["password", "createdAt", "updatedAt", "email"],
-                    },
-                },
-                {
-                    association: "updatedBy",
-                    attributes: {
-                        exclude: ["password", "createdAt", "updatedAt", "email"],
-                    },
-                },
-            ],
             offset: req.pagination.skip,
             limit: req.pagination.limit,
         });
