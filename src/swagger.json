@@ -1948,12 +1948,12 @@
                 "properties": {
                   "contactName": {
                     "type": "string",
-                    "minLength": 10,
+                    "minLength": 50,
                     "example": "Farjana"
                   },
-                  "Email": {
+                  "email": {
                     "type": "string",
-                    "minLength": 10,
+                    "minLength": 50,
                     "example": "farjana@gmail.com"
                   },
                   "phoneNumber": {
@@ -1961,9 +1961,9 @@
                     "minLength": 11,
                     "example": "01234567891"
                   },
-                  "messsage": {
+                  "message": {
                     "type": "string",
-                    "minLength": 5,
+                    "minLength": 200,
                     "example": "build my building carefully"
                   }
                 }

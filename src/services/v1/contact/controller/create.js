@@ -5,17 +5,16 @@ module.exports = async (req, res, next) => {
   try {
     const {
       contactName,
-      Email,
+      email,
       phoneNumber,
       message,
     } = req.body;
 
     await Contact.create({
         contactName,
-        Email,
+        email,
         phoneNumber,
         message,
-
     });
 
     res.status(201).json({
