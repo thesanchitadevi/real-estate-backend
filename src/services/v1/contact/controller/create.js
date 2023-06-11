@@ -16,7 +16,6 @@ module.exports = async (req, res, next) => {
         phoneNumber,
         message,
 
-      createdById: req.user.id,
     });
 
     res.status(201).json({

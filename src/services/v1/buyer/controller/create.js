@@ -33,8 +33,6 @@ module.exports = async (req, res, next) => {
       numberofBathroom,
       numberofBedroom,
       parkingSize,
-
-      createdById: req.user.id,
     });
 
     res.status(201).json({
